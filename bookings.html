@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Bookings</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section id="bookings">
+            <h2>Your Bookings</h2>
+            <div class="booking-list">
+                {% for booking in bookings %}
+                <div class="booking">
+                    <h3>{{ booking.package.name }}</h3>
+                    <p>{{ booking.package.description }}</p>
+                    <p>${{ booking.package.price }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Travel Booking System</p>
+    </footer>
+</body>
+</html>
